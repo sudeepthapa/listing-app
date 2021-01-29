@@ -28,6 +28,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar color="dark" dark expand="md">
+        <div className="container">
           <NavbarBrand href="/">React Basics</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -41,6 +42,7 @@ class NavBar extends React.Component {
             </Nav>
             <NavbarText>Logout</NavbarText>
           </Collapse>
+        </div>
         </Navbar>
     );
   }
