@@ -1,40 +1,59 @@
 import React from 'react';
+import axios from 'axios';
 import {
-  Card, CardImg, CardText, CardBody,
+  Card, Spinner, CardText, CardBody,
   CardTitle, CardSubtitle, Button, CardFooter
 } from 'reactstrap';
 
+const BASE_URL = "https://jsonplaceholder.typicode.com"
 class Posts extends React.Component{
 
   state = {
-    posts: [
-      {
-        userId: 1,
-        id: 1,
-        title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        body: "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-      },
-      {
-        userId: 1,
-        id: 2,
-        title: "qui est esse",
-        body: "est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla"
-      },
-      {
-        userId: 1,
-        id: 3,
-        title: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-        body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
-      },
-    ]
+    posts: [],
+    isLoading:false
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      ...this.state,
+      isLoading: true
+    })
+
+    axios.get(`${BASE_URL}/posts`).then(res => {
+      this.setState({
+        posts: res.data,
+        isLoading: false
+      })
+    }).catch(error => {
+      this.setState({
+        ...this.state,
+        isLoading: false
+      })
+    })
+
+    // fetch(`${BASE_URL}/posts`).then(res => res.json()).then(json => {
+    //   this.setState({
+    //     posts: json,
+    //     isLoading:false
+    //   })
+    // }).catch(error => {
+    //   this.setState({
+    //     ...this.state,
+    //     isLoading:false
+    //   })
+    //   console.log(error)
+    // })
+    
   }
 
   render() {
+
+    if(this.state.isLoading) return <Spinner type="grow" color="primary" />
     return <div className="container">
       {
         this.state.posts.map(post => {
           return (
-            <Card className="mt-3">
+            <Card key={post.id} className="mt-3">
               <CardBody>
                 <CardTitle tag="h5"> { post.title } </CardTitle>
                 <CardText> { post.body } </CardText>
