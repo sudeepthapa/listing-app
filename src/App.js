@@ -1,10 +1,12 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
-      <h1>Initial Project Setup</h1>
-    </div>
+    <Router>
+      <Navbar />
+    </Router>
   );
 }
 
