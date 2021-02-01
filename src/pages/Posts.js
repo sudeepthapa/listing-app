@@ -16,8 +16,28 @@ const Posts = (props) => {
     // Component did mount
     setIsLoading(true)
     axios.get(`${BASE_URL}/posts`).then(res => {
-      setPosts(res.data)
-      setIsLoading(false)
+      const promises = [];
+        
+      res.data.forEach(item => {
+        promises.push(axios.get(`${BASE_URL}/users/${item.userId}`))
+      })
+
+      Promise.all(promises).then(result => {
+        const actualPostData = [];
+        
+        const userList = result.map(el => {
+          return el.data
+        })
+        
+        res.data.forEach(item => {
+          const postUser = userList.find(user => user.id == item.userId)
+          actualPostData.push({ ...item, user:postUser})
+        });
+
+        setPosts(actualPostData)
+        setIsLoading(false)
+      })
+
     }).catch(error => {
       setIsLoading(false)
     })
@@ -38,7 +58,7 @@ const Posts = (props) => {
               <CardText> { post.body } </CardText>
             </CardBody>
             <CardFooter>
-              <CardSubtitle> Created By : {post.userId} </CardSubtitle>
+              <CardSubtitle> Created By : {post.user.name} </CardSubtitle>
             </CardFooter>
           </Card>
         )
