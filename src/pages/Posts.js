@@ -24,7 +24,7 @@ const Posts = (props) => {
 
       Promise.all(promises).then(result => {
         const actualPostData = [];
-        
+
         const userList = result.map(el => {
           return el.data
         })
@@ -69,3 +69,7 @@ const Posts = (props) => {
 }
 
 export default Posts;
+
+// TODO
+
+// 1. Promise handling using async..await
