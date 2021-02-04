@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+.app {
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -35,4 +35,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.carousel_image{
+  width: 100%;
+  height: 80vh;
 }

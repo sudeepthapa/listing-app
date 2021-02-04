@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { BASE_URL, API_KEY } from '../config'
 import MovieCard from '../components/MovieCard';
+import ImageCarousel from '../components/Carousel';
 
 const Home = () => {
 
@@ -25,6 +26,12 @@ const Home = () => {
 
   return (
     <div>
+      <div className="movie_carousel">
+        <ImageCarousel movies={playingNow} />
+      </div>
+
+      <div className="container-fluid">
+
       <div className="mt-2 text-light card bg-info p-2">
         <h3>Now Playing</h3>
       </div>
@@ -48,6 +55,7 @@ const Home = () => {
         }
       </div>
     </div>
+      </div>
   )
 }
 

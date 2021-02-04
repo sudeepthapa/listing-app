@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <div className="container-fluid">
+      <div className="app">
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
