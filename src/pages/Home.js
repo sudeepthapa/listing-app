@@ -19,9 +19,12 @@ const Home = () => {
     setTrendings(res.data.results);
   }
 
-  const getPlayingNowMovies = async () => {
-    const res = await axios.get(`${BASE_URL}/movie/now_playing`, { params:{ api_key: API_KEY }});
-    setPlayingNow(res.data.results.splice(0,6));
+  const getPlayingNowMovies =  () => {
+    axios.get(`${BASE_URL}/movie/now_playing`, { params: { api_key: API_KEY } }).then(res => {
+      setPlayingNow(res.data.results.splice(0,6));
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   return (

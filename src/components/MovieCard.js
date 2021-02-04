@@ -7,22 +7,14 @@ import { IMAGE_BASE_URL } from '../config';
 
 const MovieCard = ({movie}) => {
   return (
-    <Card className="mt-2">
+    <Card className="mt-2 movie-card">
         <CardImg top width="100%" src={`${IMAGE_BASE_URL}${movie.poster_path}`} alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h5">{movie.title}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">
-          <div>
-            Vote Count : { movie.vote_count}
-            </div>
-          <div>
-            Popularity : { movie.popularity}
-            </div>
-          </CardSubtitle>
-      <div>
-        {movie.adult && <Badge color="info">Adult</Badge>}
-      </div>
+        <CardBody className="image-card-body">
+          <CardTitle tag="h5" className="mb-0 pb-0">{movie.title}</CardTitle>
       </CardBody>
+      <div className="movie-class">
+        {movie.adult ? <Badge color="info">Adult</Badge>:<Badge color="danger p-1">HD</Badge>}
+      </div>
       </Card>
   )
 }
