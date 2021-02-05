@@ -36,7 +36,7 @@ const ImageCarousel = ({movies}) => {
         onExited={() => setAnimating(false)}
         key={item.id}
       >
-        <div style={{ height: '80vh', width: '100%', background: `url(${IMAGE_BASE_URL}${item.backdrop_path})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center' }} >
+        <div style={{ height: '95vh', width: '100%', background: `url(${IMAGE_BASE_URL}${item.backdrop_path})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center' }} >
           <div style={{width:'100%', height:'100%', background:'linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 18%, rgba(0,0,0,0) 50%, rgba(0,0,0,.8) 100%)'}}></div>
         </div>
         {/* <img className="carousel_image" src={`${IMAGE_BASE_URL}${item.backdrop_path}`} alt={item.title} /> */}
