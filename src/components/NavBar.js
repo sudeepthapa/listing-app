@@ -19,7 +19,7 @@ const NavBar = (props) => {
     <div>
       <Navbar dark expand="md" fixed="top" style={{ background: 'transparent' }}>
         <div className="container-fluid">
-          <NavbarBrand href="/">MOVIEDB</NavbarBrand>
+          <NavbarBrand href="/">PlayFreeMovie</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
