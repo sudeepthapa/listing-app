@@ -17,18 +17,36 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar dark expand="md" fixed="top" style={{ background: 'transparent' }}>
         <div className="container-fluid">
-        <NavbarBrand href="/">MOVIEDB</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink>Movies</NavLink>
-            </NavItem>
-          </Nav>
-          <NavbarText>APIS USED</NavbarText>
-        </Collapse>
+          <NavbarBrand href="/">MOVIEDB</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink>
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  Genre
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  Country
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+
+                  Movies
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <NavbarText>APIS USED</NavbarText>
+          </Collapse>
         </div>
       </Navbar>
     </div>
