@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Badge
+  Card, CardImg, CardBody,
+  CardTitle, Badge
 } from 'reactstrap';
 import { IMAGE_BASE_URL } from '../config';
 
